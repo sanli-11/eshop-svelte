@@ -1,7 +1,9 @@
 type linkType = {
   id: string;
+  isHovered?: boolean;
+  iconPack: string;
   icon?: string;
-  hoverIcon?: string;
+  altIcon?: string;
   label: string;
   link: string;
 };

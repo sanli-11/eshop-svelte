@@ -1,14 +1,20 @@
 import type { linkType } from "$lib/types/link";
 
-const pin_icon = '<i class="bi bi-geo-alt"></i>';
-const pin_icon2 = '<i class="bi bi-geo-alt-fill"></i>';
+const bootstrap_icon = "bi";
+const pin_icon = "bi-geo-alt";
+const pin_icon_fill = "bi-geo-alt-fill";
+
+const location = "101 Times Square";
+const link_to_location = "https://maps.google.com";
 
 const address: linkType = {
   id: "0",
+  isHovered: false,
+  iconPack: bootstrap_icon,
   icon: pin_icon,
-  hoverIcon: pin_icon2,
-  label: "101 Times Square",
-  link: "https://maps.google.com",
+  altIcon: pin_icon_fill,
+  label: location,
+  link: link_to_location,
 };
 
 export default address;
