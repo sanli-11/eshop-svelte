@@ -3,6 +3,8 @@
   import NavMenuButton from "../svelte/NavMenuButton.svelte";
   import SearchBar from "../svelte/SearchBar.svelte";
   import StatefulLink from "../svelte/StatefulLink.svelte";
+
+  // TODO: Change font for h1
 </script>
 
 <div

@@ -2,6 +2,8 @@
   import type { linkType } from "$lib/types/link";
 
   const { id, iconPack, icon, label, link }: linkType = $props();
+
+  // TODO: Logic to make second span stateful
 </script>
 
 <a href={link} class="hidden gap-x-4 bg-main hover:bg-main lg:flex">
@@ -12,8 +14,6 @@
     <span class="text-xs">
       {label}
     </span>
-    <span class="text-xs font-bold">
-      {label}
-    </span>
+    <span class="text-xs font-bold"> Stateful </span>
   </div>
 </a>
