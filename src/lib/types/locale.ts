@@ -1,10 +1,9 @@
 import type { iconType } from "$lib/types/icon";
 
-type linkType = {
+type localeType = {
   id: string;
-  icon?: iconType;
+  icon: iconType;
   label: string;
-  link: string;
 };
 
-export type { linkType };
+export type { localeType };

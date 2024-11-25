@@ -1,24 +1,25 @@
+import { icons } from "$lib/constants/icon";
+import { quickLinkData } from "$lib/constants/nav_link";
+import type { linkDataType } from "$lib/types/data";
 import type { linkType } from "$lib/types/link";
+import { getIconHandler } from "$lib/utils/iconHandler";
+import { v4 as uuid } from "uuid";
 
-const bootstrap_icon = "bi";
-const cart_icon = "bi-cart";
-const account_icon = "bi-person";
+let linkIcons: string[][] = [];
 
-const quickLinks: linkType[] = [
-  {
-    id: "0",
-    iconPack: bootstrap_icon,
-    icon: cart_icon,
-    label: "Cart",
-    link: "/cart",
-  },
-  {
-    id: "1",
-    iconPack: bootstrap_icon,
-    icon: account_icon,
-    label: "Account",
-    link: "/account",
-  },
-];
+// each line pushes [default, hover]
+linkIcons.push(Object.values(icons.cart));
+linkIcons.push(Object.values(icons.account));
+
+const quickLinks: linkType[] = [];
+
+quickLinkData.forEach((data: linkDataType, i: number) => {
+  quickLinks.push({
+    id: uuid(),
+    icon: getIconHandler(linkIcons[i]),
+    label: data.text,
+    link: data.link,
+  });
+});
 
 export default quickLinks;

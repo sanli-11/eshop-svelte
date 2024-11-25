@@ -1,71 +1,42 @@
+import { icons } from "$lib/constants/icon";
+import { navLinkData } from "$lib/constants/nav_link";
+import type { linkDataType } from "$lib/types/data";
 import type { linkType } from "$lib/types/link";
-import type { popupLinkType } from "$lib/types/popupLink";
-import categories from "./categories";
+import { getIconHandler } from "$lib/utils/iconHandler";
+import { v4 as uuid } from "uuid";
 
-const bootstrap_icon = "bi";
-const menu_icon = "bi-list";
-const close_icon = "bi-x-lg";
-const star_icon = "bi-star";
-const star_icon_fill = "bi-star-fill";
-const heart_icon = "bi-heart";
-const heart_icon_fill = "bi-heart-fill";
-const gift_icon = "bi-gift";
-const gift_icon_fill = "bi-gift-fill";
+const navIcons: string[][] = [];
 
-const navLinks: (popupLinkType | linkType)[][] = [
-  [
-    {
-      id: "0",
-      isHovered: false,
-      iconPack: bootstrap_icon,
-      icon: menu_icon,
-      altIcon: close_icon,
-      label: "Categories",
-      link: "/categories",
-      popupContent: categories,
-    },
-    {
-      id: "1",
-      label: "Products",
-      link: "/products",
-    },
-    {
-      id: "2",
-      label: "Blogs",
-      link: "/blogs",
-    },
-    {
-      id: "3",
-      label: "Contact",
-      link: "/contact",
-    },
-  ],
-  [
-    {
-      id: "0",
-      iconPack: bootstrap_icon,
-      icon: star_icon,
-      altIcon: star_icon_fill,
-      label: "Limited Sales",
-      link: "/limited",
-    },
-    {
-      id: "1",
-      iconPack: bootstrap_icon,
-      icon: heart_icon,
-      altIcon: heart_icon_fill,
-      label: "Best Sellers",
-      link: "/best",
-    },
-    {
-      id: "2",
-      iconPack: bootstrap_icon,
-      icon: gift_icon,
-      altIcon: gift_icon_fill,
-      label: "Blogs",
-      link: "/blogs",
-    },
-  ],
-];
+// each line pushes [default, hover]
+navIcons.push(Object.values(icons.list));
+navIcons.push(Object.values(icons.grid));
+navIcons.push(Object.values(icons.journal));
+navIcons.push(Object.values(icons.contact));
+navIcons.push(Object.values(icons.star));
+navIcons.push(Object.values(icons.heart));
+navIcons.push(Object.values(icons.gift));
 
-export default navLinks;
+const navLinks1: linkType[] = [];
+const navLinks2: linkType[] = [];
+
+navLinkData.forEach((data: linkDataType, i: number) => {
+  // 4 items in left navigation menu
+  // 3 items in right navigation menu
+  if (i <= 3) {
+    navLinks1.push({
+      id: uuid(),
+      icon: getIconHandler(navIcons[i]),
+      label: data.text,
+      link: data.link,
+    });
+  } else {
+    navLinks2.push({
+      id: uuid(),
+      icon: getIconHandler(navIcons[i]),
+      label: data.text,
+      link: data.link,
+    });
+  }
+});
+
+export { navLinks1, navLinks2 };

@@ -15,7 +15,7 @@
   // TODO: Logic for Filtering categories
   // TODO: Logic for clearing filter
   // TODO: Adding dropdown matching items
-  //TODO: Adding clear button for input
+  // TODO: Adding clear button for input
 
   let categoryHeading: categoryType | undefined;
   let categoryContent: linkType | undefined;

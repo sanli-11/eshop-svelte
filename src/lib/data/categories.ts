@@ -1,43 +1,44 @@
 import type { categoryType } from "$lib/types/category";
+import { v4 as uuid } from "uuid";
 
 const categories: categoryType[] = [
   {
-    id: "0",
-    heading: "Type 1",
+    id: uuid(),
+    heading: "Heading 1",
     content: [
       {
-        id: "0",
+        id: uuid(),
         label: "Category 1",
         link: "/category1",
       },
       {
-        id: "1",
+        id: uuid(),
         label: "Category 2",
         link: "/category2",
       },
       {
-        id: "2",
+        id: uuid(),
         label: "Category 3",
         link: "/category3",
       },
     ],
   },
   {
-    id: "1",
-    heading: "Type 2",
+    id: uuid(),
+    heading: "Heading 2",
     content: [
       {
-        id: "3",
+        id: uuid(),
         label: "Category 4",
         link: "/category1",
       },
       {
-        id: "4",
+        id: uuid(),
         label: "Category 5",
         link: "/category2",
       },
       {
-        id: "5",
+        id: uuid(),
         label: "Category 6",
         link: "/category3",
       },

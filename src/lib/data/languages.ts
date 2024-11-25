@@ -1,22 +1,25 @@
-import type { langOption } from "$lib/types/langOption";
+import { icons } from "$lib/constants/icon";
+import { languageData } from "$lib/constants/langague";
+import type { textDataType } from "$lib/types/data";
+import type { localeType } from "$lib/types/locale";
+import { getIconHandler } from "$lib/utils/iconHandler";
+import { v4 as uuid } from "uuid";
 
-const flag_icon = "fi fis";
-const uk_flag = "fi-gb";
-const pk_flag = "fi-pk";
+let flagIcons: string[][] = [];
 
-const languages: langOption[] = [
-  {
-    id: "1",
-    iconPack: flag_icon,
-    flag: uk_flag,
-    language: "English",
-  },
-  {
-    id: "0",
-    iconPack: flag_icon,
-    flag: pk_flag,
-    language: "Urdu",
-  },
-];
+// each line pushes [languageName]
+flagIcons.push([icons.flags.english]);
+flagIcons.push([icons.flags.urdu]);
+flagIcons.push([icons.flags.farsi]);
+
+const languages: localeType[] = [];
+
+languageData.forEach((data: textDataType, i: number) => {
+  languages.push({
+    id: uuid(),
+    icon: getIconHandler(flagIcons[i]),
+    label: data.text,
+  });
+});
 
 export default languages;
