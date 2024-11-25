@@ -1,4 +1,4 @@
-import type { linkType } from "./link";
+import type { linkType } from "$lib/types/link";
 
 type categoryType = {
   id: string;

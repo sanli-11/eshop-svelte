@@ -1,10 +1,9 @@
 <script lang="ts">
-    import Hero from "$lib/pages/Hero.svelte";
-
+  import Home from "$lib/pages/Home.svelte";
 </script>
 
 <main>
-  <Hero />
+  <Home />
 </main>
 
 <style>
