@@ -6,10 +6,10 @@
 </script>
 
 <div
-  class="logo flex items-center justify-between gap-x-12 gap-y-4 pb-2 lg:justify-evenly lg:py-0"
+  class="logo flex items-center justify-between gap-x-8 gap-y-4 pb-2 lg:justify-evenly lg:py-0"
 >
   <h1
-    class="cursor-pointer select-none text-nowrap text-3xl font-bold tracking-wider text-white"
+    class="cursor-pointer select-none text-nowrap font-['Questrial'] text-3xl font-bold tracking-wide text-white"
   >
     e-shop
   </h1>
@@ -17,7 +17,7 @@
   <SearchBar />
   <nav
     aria-labelledby="secondary-navigation"
-    class="hidden items-center justify-end gap-x-8 lg:flex"
+    class="hidden items-center justify-end gap-x-6 lg:flex"
   >
     {#each quickLinks as link (link.id)}
       <QuickLink {...link} />
