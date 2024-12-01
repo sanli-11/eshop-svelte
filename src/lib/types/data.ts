@@ -1,4 +1,5 @@
 type textDataType = {
+  title?: string;
   text: string;
 };
 
@@ -7,4 +8,9 @@ type linkDataType = {
   link: string;
 };
 
-export type { linkDataType, textDataType };
+type imageDataType = {
+  src: string;
+  alt: string;
+};
+
+export type { imageDataType, linkDataType, textDataType };
