@@ -9,23 +9,32 @@
   // TODO: Fix the transition showing all divs for millisecond in banner
 
   let shownBanner = $state(0);
+  let isPaused = $state(false);
 
   $effect(() => {
-    const interval = setInterval(
-      () =>
-        (shownBanner = shownBanner < banners.length - 1 ? shownBanner + 1 : 0),
-      15000,
-    );
+    const interval = setInterval(!isPaused ? nextBanner : () => {}, 15000);
 
     return () => clearInterval(interval);
   });
+
+  const prevBanner = () => {
+    shownBanner = shownBanner > 0 ? shownBanner - 1 : banners.length - 1;
+  };
+
+  const nextBanner = () => {
+    shownBanner = shownBanner < banners.length - 1 ? shownBanner + 1 : 0;
+  };
 </script>
 
 <div
   id="Hero"
+  role="banner"
   class="relative rounded-b-3xl bg-overlay py-16 lg:h-auto lg:rounded-b-2xl lg:px-36 lg:py-12"
+  onmouseenter={() => (isPaused = true)}
+  onmouseleave={() => (isPaused = false)}
 >
   <ChevronButton
+    onclick={prevBanner}
     position={"lg:top-1/2 lg:-translate-y-1/2 lg:left-16 left-8 top-2/3"}
   >
     <ChevronLeft />
@@ -66,6 +75,7 @@
     {/if}
   {/each}
   <ChevronButton
+    onclick={nextBanner}
     position={"lg:top-1/2 lg:-translate-y-1/2 lg:right-16 right-8 top-2/3"}
   >
     <ChevronRight />
